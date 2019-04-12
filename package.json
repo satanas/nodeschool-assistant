@@ -1,0 +1,21 @@
+{
+  "name": "nodeschool-organizer",
+  "version": "0.0.1",
+  "description": "Helper to manage NodeSchool websites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wil Alvarez (wil.alejandro@gmail.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "chalk": "^2.4.2",
+    "dotenv": "^7.0.0",
+    "inquirer": "^6.2.2",
+    "meetup-api": "^1.4.37",
+    "moment": "^2.24.0",
+    "mustache": "^3.0.1",
+    "ora": "^3.4.0",
+    "request-promise-native": "^1.0.7"
+  }
+}
