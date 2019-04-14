@@ -5,6 +5,7 @@ const github = require('./lib/github');
 const meetup = require('./lib/meetup');
 const website = require('./lib/website');
 
+// FIXME: Improve this configuration. Everything feels too tied up
 let config = {
   DOCS_PATH: './docs',
   DOCS_SRC_PATH: './docs-src'
