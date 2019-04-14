@@ -81,3 +81,4 @@ organizer.getEventData()
 - Add input validations and default values
 - Improve config (only store base path and let each module handle the specifics)
 - Add flexible pipeline to generate website (like allowing custom commands)
+- Add CLI mode
