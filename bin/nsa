@@ -6,9 +6,10 @@ const chalk = require('chalk');
 require('dotenv').config();
 
 const organizer = require('../index');
+const pjson = require('../package.json');
 
 program
-  .version('0.0.1');
+  .version(pjson.version);
 
 program
   .command('create-event')
