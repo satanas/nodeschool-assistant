@@ -76,11 +76,10 @@ In case you manually edit your HTML or built a new version (with `build-website`
 
 ## TO-DO
 If you want to contribute, here are a couple of things you might want to look at:
-- Read info from current data.json to enable `publish website`
-- Improve data.json (add all the answers to the questions and create the file if it doesn't exist)
 - Put venue address in the github ticket and remove link to meetup.com event
 - Upload featured image to Meetup.com event
 - Fix lat,lng (location) when creating on Meetup.com
+- Improve data.json (add all the answers to the questions and create the file if it doesn't exist)
 - Add support for multiple event providers (for example, Eventbrite)
 - Add unit tests
 - Add input validations and default values
