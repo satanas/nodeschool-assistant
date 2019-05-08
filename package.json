@@ -9,7 +9,15 @@
   "bin": {
     "nsa": "./bin/nsa"
   },
-  "author": "Wil Alvarez (wil.alejandro@gmail.com)",
+  "author": {
+    "name": "Wil Alvarez",
+    "email": "wil.alejandro@gmail.com",
+    "url": "https://satanas.io"
+  },
+  "keywords": [
+    "nodeschool",
+    "cli"
+  ],
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.2",
