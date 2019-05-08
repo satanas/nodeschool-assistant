@@ -4,6 +4,7 @@ const loc = require('./lib/location');
 const github = require('./lib/github');
 const meetup = require('./lib/meetup');
 const website = require('./lib/website');
+const data = require('./lib/data');
 
 // FIXME: Improve this configuration. Everything feels too tied up
 let config = {
@@ -32,6 +33,7 @@ config.SOCIAL_IMAGE_PATH = path.resolve(config.IMAGES_OUTPUT_PATH, 'social.png')
 
 module.exports = {
   SUPPORTED_PROVIDERS,
+  readData: data.read.bind(this, config),
   getEventData: questions.getEventData,
   previewData: questions.previewData,
   getEventLocationCoordinates: loc.getCoordinates,

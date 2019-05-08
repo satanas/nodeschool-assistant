@@ -75,14 +75,16 @@ In case you manually edit your HTML or built a new version (with `build-website`
 
 
 ## TO-DO
-If you want to contribute, here are a couple of things may look at:
+If you want to contribute, here are a couple of things you might want to look at:
 - Read info from current data.json to enable `publish website`
+- Improve data.json (add all the answers to the questions and create the file if it doesn't exist)
 - Put venue address in the github ticket and remove link to meetup.com event
 - Upload featured image to Meetup.com event
 - Fix lat,lng (location) when creating on Meetup.com
 - Add support for multiple event providers (for example, Eventbrite)
-- Improve data.json (add all the answers to the questions and create the file if it doesn't exist)
 - Add unit tests
 - Add input validations and default values
 - Improve config (only store base path and let each module handle the specifics)
-- Add flexible pipeline to generate website (like allowing custom commands)
+- Add flexible pipeline to generate website (like allowing custom commands) instead of hardcoding mustache and stylus.
+Maybe implementing something like a "recipe" or a list of bash commands that will be executed and must be defined somewhere
+in the source directory or just running something like `npm run build`

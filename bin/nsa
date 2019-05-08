@@ -66,19 +66,20 @@ program
       });
   });
 
-//program
-//  .command('publish-website')
-//  .description('Publish website by committing and pushing changes in the docs directory')
-//  .action(() => {
-//    organizer.publishWebsite()
-//      .then((data) => {
-//        console.log(chalk.green('✔ Website published successfully'));
-//      })
-//      .catch((err) => {
-//        console.log(err);
-//        console.log(chalk.red('✘ Error publishing website'));
-//      });
-//  });
+program
+  .command('publish-website')
+  .description('Publish website by committing and pushing changes in the docs directory')
+  .action(() => {
+    organizer.readData()
+      .then(organizer.publishWebsite)
+      .then((data) => {
+        console.log(chalk.green('✔ Website published successfully'));
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log(chalk.red('✘ Error publishing website'));
+      });
+  });
 
 program.parse(process.argv);
 
