@@ -10,6 +10,10 @@ let config = {
   DOCS_PATH: './docs',
   DOCS_SRC_PATH: './docs-src'
 }
+const SUPPORTED_PROVIDERS = [
+  'meetup'
+];
+
 config.IMAGES_SRC_PATH = path.resolve(config.DOCS_SRC_PATH, 'images');
 config.IMAGES_OUTPUT_PATH = path.resolve(config.DOCS_PATH, 'images');
 config.STYLES_SRC_PATH = path.resolve(config.DOCS_SRC_PATH, 'styles');
@@ -27,9 +31,11 @@ config.SOCIAL_IMAGE_PATH = path.resolve(config.IMAGES_OUTPUT_PATH, 'social.png')
 
 
 module.exports = {
+  SUPPORTED_PROVIDERS,
   getEventData: questions.getEventData,
   previewData: questions.previewData,
   getEventLocationCoordinates: loc.getCoordinates,
+  // createEvent('meetup') should receive the provider
   createMeetupEvent: meetup.createMeetupEvent.bind(this, config),
   createMentorIssue: github.createMentorIssue.bind(this, config),
   updateWebsiteData: website.updateData.bind(this, config),

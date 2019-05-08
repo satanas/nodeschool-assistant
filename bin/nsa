@@ -1,0 +1,88 @@
+#!/usr/bin/env node
+const path = require('path');
+const program = require('commander');
+const chalk = require('chalk');
+
+require('dotenv').config();
+
+const organizer = require('../index');
+
+program
+  .version('0.0.1');
+
+program
+  .command('create-event')
+  .option('--provider <provider>', 'Platform/provider used to host the event')
+  .option('--no-publish', 'Do not publish the event automatically')
+  .option('--no-build', 'Do not generate a new version of the website and do not publish any changes')
+  .description('Create a new event and publish a new version of the website with the new changes')
+  .action((options) => {
+    if (typeof options.provider === 'undefined' || organizer.SUPPORTED_PROVIDERS.indexOf(options.provider) < 0) {
+      error(`A valid provider must be specified. See nsa --help.\n\nAvailable options:\n\t${organizer.SUPPORTED_PROVIDERS.join('\n')}`);
+    }
+
+    // TODO: Sanity check for .env file
+    const {
+      CHAPTER_NAME
+    } = process.env;
+
+    const command = organizer.getEventData(CHAPTER_NAME)
+      .then(organizer.previewData)
+      .then(organizer.getEventLocationCoordinates)
+      .then(organizer.createMentorIssue)
+      .then(organizer.createMeetupEvent)
+      .then(organizer.updateWebsiteData);
+
+    if (options.build === true)
+      command
+        .then(organizer.buildWebsite)
+        .then(organizer.generateSocialImage);
+
+    if (options.build === true && options.publish === true)
+      command
+        .then(organizer.publishWebsite);
+
+    command.then((data) => {
+      console.log(chalk.green('✔') + ' Event created successfully');
+    })
+    .catch((err) => {
+      console.log(err);
+      console.log(chalk.red('✘') + ' Event creation failed');
+    });
+  });
+
+program
+  .command('build-website')
+  .description('Build website and social image with the current information in data.json')
+  .action(() => {
+    organizer.buildWebsite()
+      .then(organizer.generateSocialImage)
+      .then((data) => {
+        console.log(chalk.green('✔ Website built successfully'));
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log(chalk.red('✘ Error building website'));
+      });
+  });
+
+//program
+//  .command('publish-website')
+//  .description('Publish website by committing and pushing changes in the docs directory')
+//  .action(() => {
+//    organizer.publishWebsite()
+//      .then((data) => {
+//        console.log(chalk.green('✔ Website published successfully'));
+//      })
+//      .catch((err) => {
+//        console.log(err);
+//        console.log(chalk.red('✘ Error publishing website'));
+//      });
+//  });
+
+program.parse(process.argv);
+
+function error(msg) {
+  console.log(`${path.basename(__filename)}: ${msg}`)
+  process.exit(1);
+}
