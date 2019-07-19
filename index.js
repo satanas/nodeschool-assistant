@@ -43,5 +43,6 @@ module.exports = {
   updateWebsiteData: website.updateData.bind(this, config),
   buildWebsite: website.build.bind(this, config),
   publishWebsite: website.publish.bind(this, config),
+  syncWebsite: website.sync.bind(this, config),
   generateSocialImage: website.generateSocialImage.bind(this, config)
 }

@@ -34,7 +34,7 @@ section for more details about the values required).
 
 ## Environment Variables
 
-These are the values required in the `.env` file to configure your chapter:
+These are the values required in the `.env` file inside the directory where your website lives:
 
  * **CHAPTER_NAME**: The default name of your chapter (e.g. "NodeSchool Seattle")
  * **GITHUB_ORG**: The github organization of your NodeSchool chapter (usually "nodeschool")
@@ -45,6 +45,8 @@ These are the values required in the `.env` file to configure your chapter:
  * **MEETUP_URLNAME**: The URL Name of your group on Meetup.com (e.g. "Meetup-API-Testing")
  * **MEETUP_GROUP_ID**: The group ID of your group on Meetup.com (e.g. 1556336)
  * **BING_MAPS_API_KEY**: Your Bing Maps API key (to geolocate the venue during event creation)
+ * **GITHUB_REMOTE**: (optional) The remote where you want to push when publishing (default: origin)
+ * **GITHUB_BRANCH**: (optional) The branch you want to push when publishing (default: master)
  * **SOCIAL_IMAGE_WIDTH**: (optional) The desired width for your social image (default: 1200)
  * **SOCIAL_IMAGE_HEIGHT**: (optional) The desired height for your social image (default: 630)
 
