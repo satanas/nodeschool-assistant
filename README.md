@@ -14,7 +14,7 @@ npm install -g nodeschool-assistant mustache stylus
 
 ## Setup (Convention Over Configuration)
 
-To make our lives easy, NodeSchool Assistant follows the Convention-over-Configuration approach. So, it does the
+To make our lives easier, NodeSchool Assistant follows the Convention-over-Configuration approach. So, it does the
 following assumptions:
 
 1. You have a `.env` file in your project where the configuration is stored (check the [Environment Variables](#environment-variables)
