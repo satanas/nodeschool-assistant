@@ -9,11 +9,11 @@ const organizer = require('../index');
 const pjson = require('../package.json');
 
 program
-  .version(pjson.version);
+  .version(pjson.version, '-v, --version');
 
 program
   .command('create-event')
-  .option('--provider <provider>', 'Platform/provider used to host the event')
+  .option('--provider <provider>', 'Platform/provider used to host the event', organizer.SUPPORTED_PROVIDERS[0])
   .option('--no-publish', 'Do not publish the event automatically')
   .option('--no-build', 'Do not generate a new version of the website and do not publish any changes')
   .description('Create a new event and publish a new version of the website with the new changes')
@@ -98,7 +98,17 @@ program
       });
   });
 
+program.on('--help', function(){
+  console.log('')
+  console.log('  Example:');
+  console.log('    $ nsa create-event --provider=meetup');
+});
+
 program.parse(process.argv);
+
+if (!process.argv.slice(2).length) {
+  program.help();
+}
 
 function error(msg) {
   console.log(`${path.basename(__filename)}: ${msg}`)
