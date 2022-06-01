@@ -36,6 +36,6 @@
     "ora": "^3.4.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
-    "sharp": "^0.22.0"
+    "sharp": "^0.30.5"
   }
 }
